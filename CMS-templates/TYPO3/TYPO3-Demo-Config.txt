@@ -5,7 +5,6 @@ $TYPO3_CONF_VARS['BE']['forceCharset'] = 'utf-8';
 ######### HAUPTNAVIGATION ##########
 lib.mainnav = HMENU
 lib.mainnav.wrap = <navigation><![CDATA[|]]></navigation>
-#lib.mainnav.wrap = <navigation>|</navigation>
 lib.mainnav {
   1 = TMENU
   1.wrap = <ul class="menue horizontal">|</ul>
@@ -47,12 +46,17 @@ lib.metadata {
 	}
 }
 
+lib.artNum = TEXT
+lib.artNum {
+  field = subtitle
+  wrap = <artNum><![CDATA[|]]></artNum>
+}
+
 ########## PAGE ##########
 page = PAGE
 page.typeNum = 0
 page.config {
   renderCharset = utf-8
-#  metaCharset = utf-8
   disableAllHeaderCode = 1
   additionalHeaders = Content-type:text/xml;charset=utf-8
   absRefPrefix = http://192.168.141.128/typo3/
@@ -63,4 +67,5 @@ page.config {
 page.10 < lib.mainnav
 page.20 < lib.content
 page.30 < lib.metadata
+page.30 < lib.artNum
 page.wrap = <?xml version="1.0" encoding="utf-8"?><toxid>|</toxid>
